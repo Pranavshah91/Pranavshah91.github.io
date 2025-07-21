@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samsara TAM Pods: Rules of Engagement</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -15,14 +14,15 @@
             background-color: #F0F6FE;
             color: #1f2937; /* slate-800 */
         }
-        .flow-card {
-            border-left: 4px solid #0369EA;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .slide {
             background-color: white;
-        }
-        .flow-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .tool-card {
              background-color: white;
@@ -36,69 +36,71 @@
 </head>
 <body>
 
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800">TAM Pods: A Framework for Seamless Coverage</h1>
-            <p class="mt-4 text-lg text-slate-700 max-w-3xl mx-auto">This document outlines the framework for our TAM Pods. We will cover our guiding principles, pod structure, information requirements, hand-off processes, and the tools that support this system.</p>
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800">TAM Pods: A Framework for Seamless Coverage</h1>
         </div>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8">
+    <main class="container mx-auto p-4 md:p-8 mt-8">
 
-        <section id="principles" class="mb-12">
+        <!-- Slide 1: Guiding Principles -->
+        <section id="principles" class="slide">
             <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Our Guiding Principles</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-4xl mb-3">🤝</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-5xl mb-3">🤝</div>
                     <h3 class="font-bold text-lg text-[#0369EA]">Shared Responsibility</h3>
-                    <p class="text-sm text-slate-700 mt-2">Your backup's success is your success. We are collectively responsible for our team's achievements.</p>
+                    <p class="text-sm text-slate-600 mt-2">Your backup's success is your success. We are collectively responsible for our team's achievements.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-4xl mb-3">🗓️</div>
+                <div class="p-4">
+                    <div class="text-5xl mb-3">🗓️</div>
                     <h3 class="font-bold text-lg text-[#0369EA]">Proactive, Not Reactive</h3>
-                    <p class="text-sm text-slate-700 mt-2">Prepare for absences before they happen, avoiding last-minute scrambles and ensuring readiness.</p>
+                    <p class="text-sm text-slate-600 mt-2">Prepare for absences before they happen, avoiding last-minute scrambles and ensuring readiness.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                     <div class="text-4xl mb-3">💡</div>
+                <div class="p-4">
+                     <div class="text-5xl mb-3">💡</div>
                     <h3 class="font-bold text-lg text-[#0369EA]">Trust & Empowerment</h3>
-                    <p class="text-sm text-slate-700 mt-2">Backups are empowered to make sound decisions and act, not just be placeholders during an absence.</p>
+                    <p class="text-sm text-slate-600 mt-2">Backups are empowered to make sound decisions and act, not just be placeholders.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-4xl mb-3">🛡️</div>
+                <div class="p-4">
+                    <div class="text-5xl mb-3">🛡️</div>
                     <h3 class="font-bold text-lg text-[#0369EA]">Coverage, Not Cloning</h3>
-                    <p class="text-sm text-slate-700 mt-2">The goal is to maintain momentum and support stakeholders, not to be an exact replica of the primary TAM.</p>
+                    <p class="text-sm text-slate-600 mt-2">The goal is to maintain momentum and support stakeholders, not to be an exact replica of the primary TAM.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-4xl mb-3">🛠️</div>
+                <div class="p-4">
+                    <div class="text-5xl mb-3">🛠️</div>
                     <h3 class="font-bold text-lg text-[#0369EA]">Leverage Existing Tools</h3>
-                    <p class="text-sm text-slate-700 mt-2">Utilize Gong and Gainsight for efficient information sharing and seamless knowledge transfer.</p>
+                    <p class="text-sm text-slate-600 mt-2">Utilize our toolset for efficient information sharing and seamless knowledge transfer.</p>
                 </div>
             </div>
         </section>
 
-        <section id="structure" class="mb-12">
+        <!-- Slide 2: Pod Structure & Roles -->
+        <section id="structure" class="slide">
             <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Pod Structure & Roles</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="role-card p-6 rounded-lg shadow-lg text-center">
+                <div class="role-card p-6 rounded-lg shadow-md text-center">
                     <h3 class="font-bold text-xl text-[#0369EA] mb-2">Pod Leader</h3>
                     <p class="text-slate-700">Acts as the lead for the pod, facilitates communication, and delegates tasks during unplanned absences.</p>
                 </div>
-                <div class="role-card p-6 rounded-lg shadow-lg text-center">
+                <div class="role-card p-6 rounded-lg shadow-md text-center">
                     <h3 class="font-bold text-xl text-[#0369EA] mb-2">Primary Owner</h3>
                     <p class="text-slate-700">Has day-to-day responsibility for their assigned accounts and maintains the "Living Document".</p>
                 </div>
-                <div class="role-card p-6 rounded-lg shadow-lg text-center">
+                <div class="role-card p-6 rounded-lg shadow-md text-center">
                     <h3 class="font-bold text-xl text-[#0369EA] mb-2">Primary Backup</h3>
                     <p class="text-slate-700">Has deep familiarity with the accounts and serves as the main point of contact during an absence.</p>
                 </div>
-                <div class="role-card p-6 rounded-lg shadow-lg text-center">
+                <div class="role-card p-6 rounded-lg shadow-md text-center">
                     <h3 class="font-bold text-xl text-[#0369EA] mb-2">The Rest of the Pod</h3>
                     <p class="text-slate-700">Serve as general support for all accounts within the pod and can be consulted as needed.</p>
                 </div>
             </div>
         </section>
 
-        <section id="information" class="mb-12 bg-white p-8 rounded-lg shadow-lg">
+        <!-- Slide 3: Minimum Viable Information -->
+        <section id="information" class="slide">
             <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Minimum Viable Information</h2>
             <p class="text-center text-slate-600 max-w-3xl mx-auto mb-8">For a backup to be effective, they must have easy access to the following key pieces of information. It is the Primary Owner's responsibility to ensure these are up-to-date.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -125,54 +127,111 @@
             </div>
         </section>
 
-        <section id="handoff" class="mb-12">
+        <!-- Slide 4: Hand-Off Process -->
+        <section id="handoff" class="slide">
              <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Activating a Backup: The Hand-Off Process</h2>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="flow-card p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#0369EA]">For Planned Absences (PTO)</h3>
-                    <p class="text-slate-600 mb-4">A proactive hand-off ensures a smooth transition before scheduled time off.</p>
-                    <ol class="list-decimal list-inside space-y-3 text-slate-700">
-                        <li><span class="font-semibold">Inform the Pod:</span> Post OOO dates and links to relevant "Living Documents" or Success Plans in the Pod's Slack channel.</li>
-                        <li><span class="font-semibold">Update Systems:</span> Set your OOO on Gmail to direct inquiries to the Pod Google Group, and on Slack to name the specific Primary Backup for key accounts.</li>
-                        <li><span class="font-semibold">Brief if Needed (Optional):</span> Schedule a quick call with the Pod if complex issues require a verbal hand-off.</li>
-                    </ol>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-center text-[#0369EA]">For Planned Absences (PTO)</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">📤</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Inform the Pod</h4>
+                                <p class="text-slate-600">Post OOO dates and links to relevant "Living Documents" or Success Plans in the Pod's Slack channel.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">⚙️</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Update Systems</h4>
+                                <p class="text-slate-600">Set OOO on Gmail to direct inquiries to the Pod Google Group, and on Slack to name the specific Primary Backup.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">📞</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Brief if Needed (Optional)</h4>
+                                <p class="text-slate-600">Schedule a quick call with the Pod if complex issues require a verbal hand-off.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flow-card p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#0369EA]">For Unplanned Absences</h3>
-                    <p class="text-slate-600 mb-4">A clear protocol for when team members are unexpectedly out of office.</p>
-                     <ol class="list-decimal list-inside space-y-3 text-slate-700">
-                        <li><span class="font-semibold">Manager Communicates:</span> The manager informs the Pod Leader that a team member is unexpectedly OOO.</li>
-                        <li><span class="font-semibold">Pod Leader Delegates:</span> The Pod Leader reviews the absent TAM's calendar and delegates urgent tasks (ticket reviews, customer calls, etc.) to the Primary Backup.</li>
-                        <li><span class="font-semibold">Backup Communicates:</span> The Primary Backup informs the account's named contacts about the temporary absence to manage expectations.</li>
-                    </ol>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-center text-[#0369EA]">For Unplanned Absences</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">👨‍💼</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Manager Communicates</h4>
+                                <p class="text-slate-600">The manager informs the Pod Leader that a team member is unexpectedly OOO.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">🗂️</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Pod Leader Delegates</h4>
+                                <p class="text-slate-600">The Pod Leader reviews the absent TAM's calendar and delegates urgent tasks to the Primary Backup.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-4xl text-[#0369EA] pt-1">🗣️</div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Backup Communicates</h4>
+                                <p class="text-slate-600">The Primary Backup informs the account's named contacts about the temporary absence.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
              </div>
         </section>
 
-        <section id="tools" class="mb-12">
+        <!-- Slide 5: Hand-Back Process -->
+        <section id="handback" class="slide">
+            <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Returning to Work: The Hand-Back Process</h2>
+            <div class="max-w-2xl mx-auto w-full space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="text-4xl text-[#0369EA] pt-1">✅</div>
+                    <div>
+                        <h4 class="font-semibold text-lg">Inform the Pod</h4>
+                        <p class="text-slate-600">Let your pod know you are back from leave via the pod's Slack channel.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="text-4xl text-[#0369EA] pt-1">🔄</div>
+                    <div>
+                        <h4 class="font-semibold text-lg">Primary Backup Responsibility</h4>
+                        <p class="text-slate-600">The backup informs the returning TAM of all new and existing developments within the first few days of their return.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Tools & Documents -->
+        <section id="tools" class="slide">
             <h2 class="text-3xl font-bold text-center mb-8 text-slate-800">Tools, Documents & When to Use Them</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="tool-card p-6 rounded-lg shadow-lg">
+                <div class="tool-card p-6 rounded-lg shadow-md">
                     <h3 class="font-bold text-xl mb-2">"Living Document"</h3>
                     <p class="text-slate-600 text-sm"><span class="font-semibold text-[#0369EA]">What:</span> A centralized document (Google Doc, Confluence page) with all key account info.</p>
                     <p class="text-slate-600 text-sm mt-2"><span class="font-semibold text-[#0369EA]">When:</span> Maintained continuously. It's the first place a backup should look for information.</p>
                 </div>
-                <div class="tool-card p-6 rounded-lg shadow-lg">
+                <div class="tool-card p-6 rounded-lg shadow-md">
                     <h3 class="font-bold text-xl mb-2">Gong</h3>
                     <p class="text-slate-600 text-sm"><span class="font-semibold text-[#0369EA]">What:</span> Call recording and intelligence platform.</p>
                     <p class="text-slate-600 text-sm mt-2"><span class="font-semibold text-[#0369EA]">When:</span> Used by backups to get up to speed on recent customer conversations via 'Get Briefed'.</p>
                 </div>
-                <div class="tool-card p-6 rounded-lg shadow-lg">
+                <div class="tool-card p-6 rounded-lg shadow-md">
                     <h3 class="font-bold text-xl mb-2">Gainsight/SFDC</h3>
                     <p class="text-slate-600 text-sm"><span class="font-semibold text-[#0369EA]">What:</span> Customer success and CRM platforms.</p>
                     <p class="text-slate-600 text-sm mt-2"><span class="font-semibold text-[#0369EA]">When:</span> Used to find Named Contacts and review Success Plans, especially the Action Plan for current issues.</p>
                 </div>
-                <div class="tool-card p-6 rounded-lg shadow-lg">
+                <div class="tool-card p-6 rounded-lg shadow-md">
                     <h3 class="font-bold text-xl mb-2">Pod Slack Channel</h3>
                     <p class="text-slate-600 text-sm"><span class="font-semibold text-[#0369EA]">What:</span> A private channel for internal pod communication.</p>
                     <p class="text-slate-600 text-sm mt-2"><span class="font-semibold text-[#0369EA]">When:</span> Used for daily updates, quick questions, and for the Primary TAM to announce a planned absence.</p>
                 </div>
-                 <div class="tool-card p-6 rounded-lg shadow-lg">
+                 <div class="tool-card p-6 rounded-lg shadow-md">
                     <h3 class="font-bold text-xl mb-2">Pod Google Group</h3>
                     <p class="text-slate-600 text-sm"><span class="font-semibold text-[#0369EA]">What:</span> An external-facing email alias for the pod.</p>
                     <p class="text-slate-600 text-sm mt-2"><span class="font-semibold text-[#0369EA]">When:</span> Used in the Primary TAM's Gmail OOO message to catch external inquiries during an absence.</p>
@@ -186,8 +245,5 @@
         <p class="text-slate-600">This process ensures we uphold our commitment to customers and colleagues alike.</p>
     </footer>
 
-    <script>
-        // Chart.js script removed as it is no longer needed.
-    </script>
 </body>
 </html>
