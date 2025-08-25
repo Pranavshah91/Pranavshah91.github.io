@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsara Fleet Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+    h1 { color: #333; }
+    #data { white-space: pre-wrap; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🚚 Samsara Fleet Dashboard</h1>
+  <div id="data">Loading...</div>
+
+  <script>
+    const API_TOKEN = "YOUR_API_TOKEN_HERE"; // 🔑 Replace with your real Samsara token
+    const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+    const API_URL = "https://api.samsara.com/fleet/drivers";
+
+    async function fetchDrivers() {
+      const output = document.getElementById("data");
+      try {
+        const response = await fetch(CORS_PROXY + API_URL, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${API_TOKEN}`,
+            "Accept": "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.innerHTML = `<span class="error">❌ Network error: ${err.message}</span>`;
+      }
+    }
+
+    fetchDrivers();
+  </script>
+</body>
+</html>
