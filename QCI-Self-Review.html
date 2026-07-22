@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranav Shah · Half-Yearly Self-Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0369EA;--blue-dark:#0355C0;--navy:#00263E;--yellow:#FFB71B;
+    --teal:#1DCAD3;--green:#71AD51;--tint:#F0F6FE;--ink:#1A2733;
+    --muted:#5A6B7A;--line:#E1E9F1;--white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);background:#F4F7FB;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+    background:linear-gradient(90deg,var(--blue),var(--teal));transition:width .1s linear;}
+  .page{max-width:920px;margin:0 auto;background:var(--white);
+    box-shadow:0 1px 3px rgba(0,38,62,.08),0 24px 70px rgba(0,38,62,.07);}
+
+  /* ---------- Header ---------- */
+  header{position:relative;overflow:hidden;color:#fff;padding:52px 56px 46px;
+    background:linear-gradient(135deg,#00263E 0%,#013E63 52%,#0369EA 130%);
+    background-size:170% 170%;animation:grad 16s ease-in-out infinite alternate;}
+  @keyframes grad{0%{background-position:0% 40%;}100%{background-position:100% 60%;}}
+  header::after{content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;
+    background:radial-gradient(circle,rgba(29,202,211,.4),transparent 65%);animation:pulse 7s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:.7;transform:scale(1);}50%{opacity:1;transform:scale(1.12);}}
+  .head-in{position:relative;z-index:1;display:flex;align-items:center;gap:34px;}
+  .avatar{flex:none;width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;
+    border:4px solid rgba(255,255,255,.92);box-shadow:0 10px 30px rgba(0,0,0,.3);background:#0b3350;
+    display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:800;color:#fff;
+    animation:pop .8s cubic-bezier(.22,1,.36,1) both;}
+  .head-text{flex:1;min-width:0;animation:rise .8s .1s cubic-bezier(.22,1,.36,1) both;}
+  @keyframes pop{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:scale(1);}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--yellow);margin-bottom:14px;}
+  header h1{font-size:clamp(34px,5vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.05;}
+  header .sub{margin-top:10px;font-size:17px;color:#CFE1F5;font-weight:400;max-width:52ch;}
+  .meta{margin-top:24px;display:flex;gap:28px;flex-wrap:wrap;font-size:13px;color:#9FC0DD;}
+  .meta b{color:#fff;font-weight:600;}
+
+  /* ---------- Accounts ---------- */
+  .accounts{padding:28px 40px 32px;background:var(--tint);border-bottom:1px solid var(--line);}
+  .accounts .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    color:var(--muted);margin-bottom:18px;text-align:center;}
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media(max-width:820px){.logos{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.logos{grid-template-columns:1fr;}}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:12px;height:64px;
+    padding:0 16px 0 14px;display:flex;align-items:center;gap:11px;
+    box-shadow:0 1px 2px rgba(0,38,62,.05);opacity:0;transform:translateY(12px);
+    transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden;}
+  .chip.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease;}
+  .chip:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 10px 24px rgba(3,105,234,.14);}
+  .chip .mk{width:30px;height:30px;border-radius:6px;flex:none;object-fit:contain;background:#fff;}
+  .chip .mk.wide{width:auto;height:26px;max-width:118px;border-radius:0;}
+  .chip .mono{width:30px;height:30px;border-radius:6px;flex:none;color:#fff;font-size:10px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;}
+  .chip .nm{display:flex;flex-direction:column;line-height:1.2;}
+  .chip .nm b{font-size:13px;font-weight:700;color:var(--navy);}
+  .chip .nm small{font-size:10.5px;color:var(--muted);font-weight:500;}
+
+  /* ---------- Metrics ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .metric{background:#fff;padding:26px 20px 24px;text-align:center;}
+  .metric .fig{font-size:26px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;}
+  .metric .fig .arw{color:var(--yellow);margin:0 2px;}
+  .metric .lbl{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4;
+    text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
+
+  /* Trajectory bar */
+  .viz{padding:26px 56px 4px;}
+  .viz .box{background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:18px 22px;}
+  .viz .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
+  .viz .row .t{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);}
+  .viz .row .now{font-size:20px;font-weight:800;color:var(--blue);}
+  .track{position:relative;height:12px;background:#fff;border:1px solid var(--line);border-radius:100px;}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--teal));border-radius:100px;
+    transition:width 1.5s cubic-bezier(.22,1,.36,1);}
+  .tk{position:absolute;top:-7px;bottom:-7px;width:2px;background:var(--navy);}
+  .tk.tgt{background:transparent;border-left:2px dashed var(--yellow);}
+  .viz .scale{display:flex;justify-content:space-between;margin-top:11px;font-size:11px;color:var(--muted);font-weight:500;}
+  .viz .scale b{color:var(--navy);}
+  .bars{display:flex;align-items:flex-end;gap:16px;height:150px;padding-top:26px;}
+  .bars .bar{flex:1;display:flex;justify-content:center;align-items:flex-end;height:100%;}
+  .bars .col{width:100%;max-width:56px;height:0;border-radius:7px 7px 0 0;position:relative;
+    background:linear-gradient(180deg,var(--blue),#0b4fb0);transition:height 1.3s cubic-bezier(.22,1,.36,1);}
+  .bars .col.hot{background:linear-gradient(180deg,var(--yellow),#f59e0b);}
+  .bars .col .v{position:absolute;top:-22px;left:0;right:0;text-align:center;font-weight:800;font-size:15px;color:var(--navy);}
+  .qrow{display:flex;gap:16px;margin-top:10px;}
+  .qrow .qb{flex:1;text-align:center;font-size:11px;color:var(--muted);font-weight:600;}
+  .qrow .qb b{display:block;color:var(--blue);font-size:11.5px;font-weight:700;margin-top:2px;}
+  .cap2{margin-top:14px;font-size:12.5px;color:var(--muted);text-align:center;}
+  /* Testimonials */
+  .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+  @media(max-width:680px){.tgrid{grid-template-columns:1fr;}}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:.2s;}
+  .tcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(3,105,234,.1);border-color:#BFD8F7;}
+  .tcard .stars{color:var(--yellow);font-size:14px;letter-spacing:3px;margin-bottom:10px;}
+  .tcard p{font-size:14.5px;color:#2B3B49;line-height:1.55;font-style:italic;margin:0 0 14px;}
+  .tcard .by{border-top:1px solid var(--line);padding-top:12px;}
+  .tcard .by b{display:block;color:var(--navy);font-size:13.5px;font-weight:700;}
+  .tcard .by span{color:var(--muted);font-size:11.5px;font-weight:500;}
+  /* Peer recognition (Lattice kudos) */
+  .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+  @media(max-width:680px){.kgrid{grid-template-columns:1fr;}}
+  .kcard{background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:.2s;}
+  .kcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(3,105,234,.1);border-color:#BFD8F7;}
+  .kcard .khead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:4px;}
+  .kcard .khead b{color:var(--navy);font-size:14px;font-weight:700;}
+  .kcard .khead .date{color:var(--muted);font-size:11px;white-space:nowrap;}
+  .kcard .frm{font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;}
+  .kcard p{font-size:13.8px;color:#2B3B49;line-height:1.55;margin:0 0 12px;}
+  .ktags{display:flex;flex-wrap:wrap;gap:6px;}
+  .ktag{font-size:10.5px;font-weight:600;color:var(--blue-dark);background:#fff;border:1px solid #BFD8F7;border-radius:100px;padding:3px 10px;}
+
+  main{padding:14px 56px 12px;}
+  section{padding:34px 0 8px;border-bottom:1px solid var(--line);}
+  section:last-child{border-bottom:none;}
+  h2{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.01em;
+    display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+  h2::before{content:"";width:6px;height:24px;background:var(--blue);border-radius:3px;flex:none;}
+  h3{font-size:14px;font-weight:700;color:var(--blue);margin:22px 0 8px;text-transform:uppercase;letter-spacing:.05em;}
+  p{margin:10px 0;}
+  .lead{font-size:16.5px;color:#324455;}
+  ul{list-style:none;margin:8px 0;}
+  li{position:relative;padding:6px 0 6px 26px;color:#2B3B49;}
+  li::before{content:"";position:absolute;left:4px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--teal);}
+  li b,strong{color:var(--navy);font-weight:700;}
+  mark{background:linear-gradient(180deg,transparent 60%,rgba(255,183,27,.55) 60%);padding:0 2px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .card{background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:18px 20px;transition:.2s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(3,105,234,.1);border-color:#BFD8F7;}
+  .card h4{font-size:14px;font-weight:700;color:var(--blue-dark);margin-bottom:8px;}
+  .card ul{margin:0;}
+  .card li{padding:4px 0 4px 20px;font-size:13.5px;color:#3A4956;}
+  .card li::before{width:5px;height:5px;top:12px;background:var(--yellow);}
+
+  .quote{border-left:4px solid var(--yellow);background:#FFFBF0;padding:14px 20px;margin:16px 0;
+    border-radius:0 8px 8px 0;font-size:15px;color:#4A3B10;}
+  .quote .who{display:block;margin-top:8px;font-size:12px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:#8a6d1a;}
+
+  .subsplit{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:6px;}
+  @media(max-width:680px){.subsplit{grid-template-columns:1fr;}}
+
+  .closing{background:var(--navy);color:#DCE9F5;border-radius:14px;padding:30px 34px;margin:26px 0 34px;}
+  .closing h2{color:#fff;}.closing h2::before{background:var(--yellow);}
+  .closing li{color:#C9DCEC;}.closing li::before{background:var(--teal);}
+  .closing b{color:#fff;}
+
+  footer{padding:22px 56px;background:#F4F7FB;color:var(--muted);font-size:12px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  footer .sig{color:var(--blue);font-weight:700;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .reveal,.chip{opacity:1!important;transform:none!important;}
+    .fill{transition:none;}html{scroll-behavior:auto;}
+  }
+  @media(max-width:680px){
+    header,main,.viz,footer{padding-left:22px;padding-right:22px;}
+    .head-in{flex-direction:column;text-align:center;}
+    .meta{justify-content:center;}
+    .metrics{grid-template-columns:1fr 1fr;}
+    .grid{grid-template-columns:1fr;}
+  }
+  @media print{
+    body{background:#fff;}.page{box-shadow:none;max-width:100%;}
+    header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    section{break-inside:avoid;}.reveal,.chip{opacity:1;transform:none;}
+    #progress{display:none;}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="page">
+
+  <header>
+    <div class="head-in">
+      <img class="avatar" src="https://avatars.slack-edge.com/2026-06-05/11292701663458_82e5f830ea73f1ca0f4f_192.png"
+           alt="Pranav Shah"
+           onerror="var d=document.createElement('div');d.className='avatar';d.textContent='PS';this.replaceWith(d);">
+      <div class="head-text">
+        <div class="eyebrow">Half-Yearly Check-In &nbsp;·&nbsp; Self-Review</div>
+        <h1>Pranav Shah</h1>
+        <div class="sub">Technical Account Manager IV. Portfolio impact, scalable TAM innovation, and team leverage.</div>
+        <div class="meta">
+          <span><b>Role</b> &nbsp;Technical Account Manager IV</span>
+          <span><b>Team</b> &nbsp;TAM</span>
+          <span><b>Period</b> &nbsp;FY27 H1</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="accounts">
+    <div class="cap">Accounts I Handle</div>
+    <div class="logos">
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=unfi.com" alt="UNFI" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#4B9B3F';d.textContent='UNFI';this.replaceWith(d);"><div class="nm"><b>UNFI</b><small>United Natural Foods, Inc.</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=pfgc.com" alt="PFG" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#E4002B';d.textContent='PFG';this.replaceWith(d);"><div class="nm"><b>Performance Food Group</b><small>PFG</small></div></div>
+      <div class="chip"><img class="mk wide" src="https://d2r0eic16r3uxv.cloudfront.net/1629122804198818.png" alt="Cassens Transport" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#EE2B35';d.textContent='C';this.replaceWith(d);"><div class="nm"><small>Cassens Transport Company</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=brandsafway.com" alt="BrandSafway" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#F26522';d.textContent='BS';this.replaceWith(d);"><div class="nm"><b>BrandSafway</b><small>Strategic account</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=apigroupinc.com" alt="APi Group" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#D2232A';d.textContent='APi';this.replaceWith(d);"><div class="nm"><b>APi Group</b><small>APi Group, Inc.</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=turnpointservices.com" alt="TurnPoint" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#00263E';d.textContent='TP';this.replaceWith(d);"><div class="nm"><b>TurnPoint Services</b><small>Enterprise account</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=nextierofs.com" alt="NexTier" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#E35205';d.textContent='NX';this.replaceWith(d);"><div class="nm"><b>NexTier</b><small>NexTier Completion Solutions</small></div></div>
+      <div class="chip"><img class="mk" src="https://www.google.com/s2/favicons?sz=128&domain=dotfoods.com" alt="DOT Transportation" onerror="var d=document.createElement('div');d.className='mono';d.style.background='#0369EA';d.textContent='DOT';this.replaceWith(d);"><div class="nm"><b>DOT Transportation</b><small>DOT Transportation, Inc.</small></div></div>
+    </div>
+  </div>
+
+  <div class="metrics" id="metrics">
+    <div class="metric"><div class="fig"><span data-count="15">0</span></div><div class="lbl">CSAT survey responses · Q1 FY27 · team high</div></div>
+    <div class="metric"><div class="fig"><span data-count="68" data-suffix="%">0%</span></div><div class="lbl">Survey response rate · up from 20%</div></div>
+    <div class="metric"><div class="fig"><span data-prefix="$" data-count="340" data-suffix="K">$0K</span></div><div class="lbl">UNFI upsell supported · commercial win</div></div>
+    <div class="metric"><div class="fig"><span data-count="48">0</span></div><div class="lbl">TAM outcomes · team high</div></div>
+  </div>
+
+  <div class="viz reveal">
+    <div class="box">
+      <div class="row"><span class="t">TAM CSAT survey responses by quarter</span><span class="now"><span data-count="29">0</span> responses this period</span></div>
+      <div class="bars">
+        <div class="bar"><div class="col" data-h="7"><span class="v">1</span></div></div>
+        <div class="bar"><div class="col" data-h="33"><span class="v">5</span></div></div>
+        <div class="bar"><div class="col" data-h="53"><span class="v">8</span></div></div>
+        <div class="bar"><div class="col hot" data-h="100"><span class="v">15</span></div></div>
+      </div>
+      <div class="qrow">
+        <div class="qb">2025 Q2<b>20% rate</b></div>
+        <div class="qb">2025 Q3<b>33% rate</b></div>
+        <div class="qb">2025 Q4<b>40% rate</b></div>
+        <div class="qb">2026 Q1<b>68% rate</b></div>
+      </div>
+      <div class="cap2">Response rate climbed from 20% to 68%, the highest survey response count on the team.</div>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="reveal">
+      <h2>Summary</h2>
+      <p class="lead">This period my impact centered on four areas: improving technical health across my portfolio, turning technical account work into commercial and customer outcomes, building scalable TAM workflows, and raising team leverage through reusable tooling and enablement.</p>
+      <p>The work combined direct customer execution with broader team impact, including high-severity escalations, portfolio health improvements, the Technical Health Review, the TAM Command Center, and tooling that other TAMs and support teams now use.</p>
+    </section>
+
+    <section class="reveal">
+      <h2>Voice of the customer</h2>
+      <p class="lead">Selected CSAT survey feedback from customers across the portfolio this period.</p>
+      <div class="tgrid">
+        <div class="tcard"><div class="stars">★★★★★</div><p>"Pranav is willing to do whatever it takes to help us improve our experience with Samsara. I have to believe that this level of helpfulness is uncommon."</p><div class="by"><b>Ken Paluch</b><span>Cassens Transport Company</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"Pranav is incredibly knowledgeable and generously helpful with the questions I have. He's patient and always willing to do a Zoom/Teams meeting to ensure I understand."</p><div class="by"><b>Amber Christensen</b><span>Tessiers, Inc.</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"He was the only one to show me how to update attributes for assets after months of asking others. He has been diligent in guiding me and answering all of my questions. A really great asset."</p><div class="by"><b>Bambi Piercy</b><span>NexTier Completion Solutions</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"I much appreciate being able to ask a question to a human rather than a chat box or AI. He is always willing to listen and help with any issues we are having."</p><div class="by"><b>Ann Majecic</b><span>Cassens Transport Company</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"Appreciate the time he gives our managers and is extremely helpful. Very attentive to issues at hand and does a good job communicating and resolving."</p><div class="by"><b>Wendy Ryan</b><span>Cassens Transport Company</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"Pranav is doing a great job to support our program. Very attentive and responsive to questions and support needed."</p><div class="by"><b>Bill Hertzog</b><span>Performance Food Group</span></div></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p>"Pranav has done a very good job of helping keep our support tickets on track and making sure the resolutions to the issues are correct."</p><div class="by"><b>Daniel Spohr</b><span>DOT Transportation, Inc.</span></div></div>
+        <div class="tcard"><div class="stars">★★★★☆</div><p>"Pranav is 100% reliable. He always responds, and even if a process will take a while, he clearly communicates that and always gets back with us."</p><div class="by"><b>Mike Friez</b><span>TurnPoint Services</span></div></div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Impact across my portfolio</h2>
+      <h3>Device health &amp; operational outcomes</h3>
+      <ul>
+        <li>Improved aggregate device health across my portfolio from <mark>89% to 91%</mark>, driven primarily by turnarounds at Cassens Transport, NexTier, and UNFI.</li>
+        <li>At <b>Cassens</b>, improved overall device health from 88% to 91.1% and raised AG health to target levels through focused execution on gateway issues and unhealthy assets.</li>
+        <li>Resolved a roughly <b>49-million-mile odometer discrepancy</b> at Cassens by identifying unplugged gateways as the root cause, implementing Gateway Unplugged Alerts, and restoring confidence in downstream maintenance data.</li>
+      </ul>
+      <h3>Support efficiency &amp; self-sufficiency</h3>
+      <ul>
+        <li>Reduced how-to tickets from <b>32% to 26%</b> by moving customers toward greater self-sufficiency and creating more room for higher-value technical work.</li>
+        <li>Generated the highest number of customer survey responses on the team in the February CSAT cycle.</li>
+      </ul>
+      <h3>Commercial impact</h3>
+      <ul>
+        <li>Supported the UNFI account team in closing a <mark>$340K upsell</mark> for Connected Training and Commercial Navigation, and was recognized in the associated win motion.</li>
+        <li>Helped create broader expansion momentum at UNFI across AI Multicam, Connected Workflows, Forklift Safety, and Asset Tracking by tying technical adoption and account strategy together.</li>
+        <li>At <b>UNFI</b>, stepped in at a critical moment to stabilize active support issues and establish a strong operating cadence through weekly syncs and iterative technical reviews, tightening alignment between the customer, Support, and the account team. This sustained Q4/Q1 expansion momentum, kept device health moving, helped position UNFI's Chief Safety Officer for the <mark>Beyond mainstage</mark>, and put the account on track from Yellow to Green sentiment.</li>
+        <li>At Cassens, turned a customer operational pain point into a tracker upsell conversation by identifying an AT11/AT12 use case to reduce hardware loss in transit.</li>
+      </ul>
+      <h3>Strategic customer ownership</h3>
+      <ul>
+        <li>Drove a critical cross-functional escalation for <b>BrandSafway</b> on device activity and total on-time API data, coordinating across legal, technical, and account stakeholders to keep a red-sentiment strategic account moving toward resolution.</li>
+        <li>Owned high-severity escalations across <b>PFG and APi Group</b>, including analysis of drowsiness model behavior and root-cause determination on a missing crash video caused by loss of camera power at impact.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h2>Scalable TAM impact</h2>
+      <h3>Technical Health Review</h3>
+      <ul>
+        <li>Drove the Technical Health Review, a strategic FY27 priority designed to give customers an executive-level view of fleet health across five pillars.</li>
+        <li>Built the framework, delivered the first pilots, and established the foundation for a repeatable deliverable that can scale across the TAM organization.</li>
+      </ul>
+      <h3>TAM Command Center &amp; AI workflow innovation</h3>
+      <ul>
+        <li>Built the <b>TAM Command Center</b> to provide a single view of tasks, customer context, and outcomes across Gmail, Slack, Calendar, Jira, Zendesk, and Gong, reducing manual prep and making account prioritization easier.</li>
+        <li>Presented it to the full team, where it was recognized as a practical way to reduce TAM overhead and improve execution quality.</li>
+        <li>Approved as a <b>RevUp capstone</b> and later showcased in Support AI Bootcamp as a concrete example of AI improving TAM workflows.</li>
+      </ul>
+      <h3>Reusable tooling &amp; process improvement</h3>
+      <ul>
+        <li>Built the <b>Gateway Deactivation script</b> and related workflow improvements, later incorporated into an internal Support Tools resource for broader use across the organization.</li>
+        <li>The solution supported batch deactivation through the public API with dry-run preview, region support, and reporting, and has already been used across multiple accounts to clean up dormant hardware and improve asset gateway health.</li>
+      </ul>
+      <div class="quote">A game-changer for enterprise accounts. It cleaned up years of dormant data and significantly increased customer trust in the TAM team.
+        <span class="who">Sanjay · on the Gateway Deactivation script</span></div>
+    </section>
+
+    <section class="reveal">
+      <h2>Global impact across TAM &amp; Support</h2>
+      <p class="lead">Impact that reached beyond my own portfolio into the wider TAM and Support organizations, across regions.</p>
+      <ul>
+        <li><b>Tooling adopted org-wide.</b> The Gateway Deactivation script was rolled into the shared Support Tools resource and featured in Bothell Bark, putting it in the hands of TAMs and support engineers well beyond my accounts.</li>
+        <li><b>AI workflows showcased at scale.</b> The TAM Command Center was presented to the full team and featured in Support AI Bootcamp and as a RevUp capstone, setting a reference example for AI-driven TAM workflows.</li>
+        <li><b>Cross-region enablement.</b> Delivered a knowledge session for the India-based Support team on the TAM function and how TAM and Support partner, strengthening the global operating model.</li>
+        <li><b>Repeatable practices shared broadly.</b> Distributed workflows, demos, and processes across the wider TAM org rather than keeping solutions account-specific.</li>
+        <li><b>Org-level process improvements.</b> Contributed to release-visibility and field-digest efforts and pushed to add beta and early-access visibility for better TAM use across the team.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h2>Team impact</h2>
+      <h3>Enablement, mentoring &amp; hiring</h3>
+      <ul>
+        <li>Logged <b>48 TAM outcomes</b>, the highest total on the team during the period, and won the Q1 FY27 TAM Outcomes SPIFF.</li>
+        <li>Shared practical workflows and best practices with the broader TAM team through demos, tooling, and repeatable processes rather than keeping solutions isolated to individual accounts.</li>
+        <li>Delivered a knowledge session for the India-based Support team on the TAM function, covering what TAMs do and how TAM and Support should partner.</li>
+        <li>Mentored <b>Daniela</b> through ramp; she now manages her accounts independently.</li>
+        <li>Submitted four candidate referrals: <b>Vaibhav</b> joined and is excelling in the Safety PSE organization; <b>Saurabh</b> joined in May.</li>
+      </ul>
+      <h3>Cross-functional credibility</h3>
+      <ul>
+        <li>On BrandSafway, Abhishek recognized my structure, attention to detail, and ownership, noting I stepped in whenever needed so the customer never felt a gap in support.</li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h2>Peer recognition</h2>
+      <p class="lead">Kudos from colleagues across TAM and the account teams (Lattice).</p>
+      <div class="kgrid">
+        <div class="kcard">
+          <div class="khead"><b>Tejas Satyan</b><span class="date">Recent</span></div>
+          <div class="frm">On the UNFI turnaround</div>
+          <p>"Pranav did an incredible job turning around the UNFI account at a really critical moment. He stepped in during active support issues, quickly stabilized things, and put a solid operating cadence in place. He bridged the gap between the customer and our internal teams, bringing real field feedback to Support. That hands-on focus kept our Q4/Q1 expansion momentum moving and paid off when UNFI's Chief Safety Officer joined us on the mainstage at Beyond."</p>
+          <div class="ktags"><span class="ktag">Sample the customer experience</span><span class="ktag">Work with urgency, deliver iteratively</span></div>
+        </div>
+        <div class="kcard">
+          <div class="khead"><b>Abhishek Singh</b><span class="date">May 2026</span></div>
+          <div class="frm">Tech Health Review &amp; BrandSafway</div>
+          <p>"Pranav brought structure, attention to detail, and a strong sense of ownership that helped push the Tech Health Review across the finish line. He stepped up for the BrandSafway account whenever I was stretched thin, ensuring the customer never felt the gap. That kind of reliability and customer-first mindset is rare and incredibly valuable."</p>
+          <div class="ktags"><span class="ktag">Sample the customer experience</span><span class="ktag">Keep a high bar</span><span class="ktag">Solve problems together</span></div>
+        </div>
+        <div class="kcard">
+          <div class="khead"><b>Sanjay Menon</b><span class="date">Feb 2026</span></div>
+          <div class="frm">Gateway Deactivation script</div>
+          <p>"Pranav created a Gateway Deactivation script that has been an absolute game-changer for my ENT accounts. I've leveraged it twice, and it was instrumental in cleaning up years of dormant data. This solved a major pain point and significantly built the customer's trust in the services our TAM team provides."</p>
+          <div class="ktags"><span class="ktag">Work with urgency, deliver iteratively</span><span class="ktag">Keep a high bar</span><span class="ktag">Solve problems together</span></div>
+        </div>
+        <div class="kcard">
+          <div class="khead"><b>Cristin Sullivan</b><span class="date">Nov 2025</span></div>
+          <div class="frm">Performance Food Group &amp; NexTier</div>
+          <p>"Pranav has been an integral part of both the PFG and NexTier teams. He shows tremendous initiative, dives into the root cause of technical issues, and has incredibly strong executive communication skills. He raised the risk on PFG's drowsiness detection and camera model, resulting in a CM34 upgrade. I would always want Pranav on my account teams."</p>
+          <div class="ktags"><span class="ktag">Keep a high bar</span><span class="ktag">Solve problems together</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>What I will achieve in the period ahead</h2>
+      <div class="grid">
+        <div class="card"><h4>Scale the Technical Health Review</h4><ul><li>Move THR from pilot to a repeatable deliverable any TAM can run</li><li>Complete the pilot reviews</li><li>Automate content generation to scale into Virtual TAM and the White Glove portfolio</li></ul></div>
+        <div class="card"><h4>Automate reporting</h4><ul><li>Bring THR preparation under one hour</li><li>Shift time from slide-building toward customer conversations and action planning</li></ul></div>
+        <div class="card"><h4>Sustain customer satisfaction</h4><ul><li>Maintain CSAT at or above 4.5 across my portfolio</li><li>Target the Q2 SPIFF for highest earned CSAT</li></ul></div>
+        <div class="card"><h4>Grow CSAT coverage</h4><ul><li>Sustain the highest survey response count on the team</li><li>Lift response rate beyond <mark>68%</mark> while holding OSAT at or above 4.5</li></ul></div>
+        <div class="card"><h4>Support key account milestones</h4><ul><li>Help drive the UNFI expansion</li><li>Support the Cassens and TurnPoint renewals</li></ul></div>
+        <div class="card"><h4>Professional development</h4><ul><li>Complete the AWS Solutions Architect Associate certification</li><li>Deepen AI workflow design and executive-facing communication</li></ul></div>
+      </div>
+      <div class="subsplit" style="margin-top:20px">
+        <div>
+          <h3>How I will use AI</h3>
+          <ul>
+            <li>Automate THR content generation and reporting prep for consistency.</li>
+            <li>Synthesize signals across Slack, email, Gong, Gainsight, and support history before key meetings.</li>
+            <li>Accelerate account planning, action-plan drafting, and follow-up documentation.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Support needed from my manager</h3>
+          <ul>
+            <li>Visibility to scale THR from pilot to a broader TAM deliverable.</li>
+            <li>Commercial partnership for the UNFI upsell and Cassens / TurnPoint renewals.</li>
+            <li>Approval for AWS Solutions Architect Associate training, the main blocker this cycle.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Additional enterprise outcomes</h2>
+      <ul>
+        <li><b>Performance Food Group.</b> Stabilized a large-scale Driver App and digital transformation for 11,782 drivers by accelerating a critical app fix, managing a Wi-Fi-first deployment for 8,000+ tablets, and securing 30-day early access to the new Driver App experience.</li>
+        <li><b>Performance Food Group.</b> Resolved an SSO emergency with a recovery script that restored access for 1,369 users after an accidental pilot conversion, preventing a prolonged business disruption.</li>
+        <li><b>Cassens.</b> Diagnosed the DVIR 2.0 to RTA integration gap within 24 hours, protected the May 1 rollout, and preserved momentum on an in-flight $1.5M deal by defining the interim path and joint remediation plan with RTA.</li>
+        <li><b>APi Group.</b> Enabled Holman integration for odometer and engine-hour syncing and established a migration path for 3,546 regulated vehicles and 4,561 drivers across 11 dashboards.</li>
+        <li><b>UNFI &amp; TurnPoint.</b> Cleared critical platform and API blockers protecting executive visibility and future expansion, including restoring Places CSV operations ahead of a Beyond testimonial and unblocking the datalake and reporting strategy with Coaching, Safety, and Driver Score APIs.</li>
+      </ul>
+    </section>
+
+    <div class="closing reveal">
+      <h2>Closing</h2>
+      <ul>
+        <li>My impact this period reflects strong performance through measurable portfolio improvement, strategic customer ownership, scalable TAM innovation, and meaningful team-level leverage.</li>
+        <li>The through line is consistent: <b>solve real customer problems, turn one-off effort into repeatable systems, and raise the effectiveness of the broader TAM team</b> in the process.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <span><span class="sig">Samsara</span> · Half-Yearly Self-Review</span>
+    <span>Pranav Shah · TAM IV · FY27 H1</span>
+  </footer>
+
+</div>
+
+<script>
+/* Scroll progress */
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';},{passive:true});
+
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function count(el){
+  const to=parseFloat(el.dataset.count),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+  const dec=el.dataset.count.indexOf('.')>-1?1:0;
+  const fmt=v=>pre+(dec?v.toFixed(1):Math.round(v))+suf;
+  if(reduce){el.textContent=fmt(to);return;}
+  const dur=1200,t0=performance.now();
+  (function step(t){let p=Math.min(1,(t-t0)/dur);p=1-Math.pow(1-p,3);
+    el.textContent=fmt(to*p);if(p<1)requestAnimationFrame(step);})(t0);
+}
+
+/* Reveal sections + trigger counters/fills */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(count);
+  e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.fill+'%');
+  e.target.querySelectorAll('.col[data-h]').forEach(c=>c.style.height=c.dataset.h+'%');
+  io.unobserve(e.target);}});},{threshold:.25});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Metrics strip counters */
+const mio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+  e.target.querySelectorAll('[data-count]').forEach(count);mio.unobserve(e.target);}});},{threshold:.4});
+mio.observe(document.getElementById('metrics'));
+
+/* Account chips staggered entrance */
+document.querySelectorAll('.chip').forEach((c,i)=>{setTimeout(()=>c.classList.add('in'),120+i*70);});
+</script>
+</body>
+</html>
