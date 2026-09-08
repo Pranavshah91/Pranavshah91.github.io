@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/styles.css">
+  <script src="_ds/official-rebranded-samsara-deck-template-a846109c-2b5a-4d1c-a430-be51d304b4b8/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0; font-family:var(--font-sans); background:var(--gray-100); color:var(--text-body);}
+    a{color:var(--black); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    [data-anim]{opacity:0; transform:translateY(18px);}
+    [data-anim][data-reveal="in"]{opacity:1; transform:none;
+      transition:opacity 720ms var(--ease-out), transform 720ms var(--ease-out);}
+    @media (prefers-reduced-motion: reduce){
+      [data-anim]{opacity:1!important; transform:none!important; transition:none!important;}
+    }
+    @media print{
+      [data-no-print]{display:none!important;}
+      [data-anim]{opacity:1!important; transform:none!important;}
+      body{background:#fff;}
+      *,*::before,*::after{animation:none!important; transition:none!important;}
+    }
+  </style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#1C1917"></rect>
+    <rect x="60" y="84" width="80" height="10" fill="#FEAE0F"></rect>
+    <text x="100" y="72" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#F5F4F1">PS</text>
+    <text x="100" y="126" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#B9B6AD">FY27 Q3</text>
+  </svg>
+</template>
+
+<div style="min-height:100vh; background:var(--gray-100);">
+
+  <!-- STICKY NAV -->
+  <div data-no-print="true" style="position:sticky; top:0; z-index:50; background:var(--black); border-bottom:1px solid rgba(245,244,241,0.12); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(20px,5vw,64px); flex-wrap:nowrap;">
+    <div style="display:flex; align-items:center; gap:10px; flex:none;">
+      <img src="assets/logos/samsara-symbol-white.png" alt="Samsara" style="height:24px; width:auto; display:block;">
+    </div>
+    <div style="display:flex; align-items:center; gap:16px; flex:1 1 auto; min-width:0; overflow-x:auto; scrollbar-width:none; justify-content:flex-end;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+        <span onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</span>
+      </sc-for>
+    </div>
+    <x-import component-from-global-scope="SamsaraDesignSystem_a84610.Button" variant="inverse" size="sm" onClick="{{ printPage }}" style="{{ printBtnStyle }}" hint-size="70px,32px">Print</x-import>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative; display:flex; align-items:flex-end; min-height:clamp(360px,42vw,460px); background-image:linear-gradient(90deg, rgba(28,25,23,0.94) 0%, rgba(28,25,23,0.78) 48%, rgba(28,25,23,0.42) 82%), linear-gradient(180deg, rgba(28,25,23,0.55) 0%, rgba(28,25,23,0.10) 40%, rgba(28,25,23,0.45) 100%), url('assets/imagery/hero.jpeg'); background-size:cover; background-position:center;">
+    <div style="position:relative; z-index:1; padding:56px clamp(20px,5vw,64px) 40px; max-width:1200px;">
+      <img src="assets/logos/samsara-primary-white.png" alt="Samsara" style="height:26px; width:auto; display:block;">
+      <div style="margin-top:28px;">
+        <x-import component-from-global-scope="SamsaraDesignSystem_a84610.Eyebrow" hint-size="auto,26px">Self-review · check-in</x-import>
+      </div>
+      <h1 style="font-family:var(--font-sans); font-weight:var(--fw-bold); letter-spacing:var(--ls-head); font-size:clamp(40px,5.2vw,56px); line-height:var(--lh-headline); color:var(--gray-100); margin:20px 0 8px;">Pranav Shah</h1>
+      <div style="font-size:var(--fs-body-lg); font-weight:var(--fw-regular); color:rgba(245,244,241,0.84); max-width:56ch; line-height:1.5;">Technical Account Manager IV. Customer reliability, scalable TAM programs, and cross-functional impact.</div>
+      <div style="display:flex; gap:36px; margin-top:26px; flex-wrap:wrap;">
+        <div><div style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500);">Role</div><div style="font-size:15px; font-weight:700; color:var(--gray-100); margin-top:2px;">Technical Account Manager IV</div></div>
+        <div><div style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500);">Team</div><div style="font-size:15px; font-weight:700; color:var(--gray-100); margin-top:2px;">TAM</div></div>
+        <div><div style="font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500);">Period</div><div style="font-size:15px; font-weight:700; color:var(--gray-100); margin-top:2px;">FY27 Q3</div></div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;">
+        <sc-for list="{{ portfolioAccounts }}" as="acc" hint-placeholder-count="8">
+          <div title="{{ acc.name }}" style="display:flex; align-items:center; gap:9px; padding:6px 12px 6px 6px; background:rgba(245,244,241,0.10); border:1px solid rgba(245,244,241,0.22);">
+            <sc-if value="{{ acc.showCode }}" hint-placeholder-val="{{ true }}">
+              <span style="width:32px; height:26px; display:flex; align-items:center; justify-content:center; background:var(--gray-100); color:var(--black); font-size:10.5px; font-weight:700; letter-spacing:0.04em; flex:none;">{{ acc.code }}</span>
+            </sc-if>
+            <span style="font-size:12.5px; font-weight:600; color:var(--gray-100); white-space:nowrap;">{{ acc.name }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div data-no-print="true" style="background:var(--gray-100); border-bottom:1px solid var(--border-subtle); padding:16px clamp(20px,5vw,64px); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); flex:none;">Filter by account</span>
+    <sc-for list="{{ accountChips }}" as="chip" hint-placeholder-count="8">
+      <span onClick="{{ chip.onClick }}" style="{{ chip.style }}">{{ chip.label }}</span>
+    </sc-for>
+    <sc-if value="{{ hasFilter }}" hint-placeholder-val="{{ false }}">
+      <span onClick="{{ clearFilters }}" style="font-size:12.5px; font-weight:700; color:var(--black); cursor:pointer; padding:8px 6px; text-decoration:underline;">Clear filters</span>
+    </sc-if>
+  </div>
+
+  <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,64px) 100px;">
+
+    <!-- STATS -->
+    <section id="stats" style="padding-top:56px;">
+      <div style="font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:24px;">FY27 Q3 snapshot</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(max(240px, min(100%, 30%)),1fr)); gap:36px 28px; align-items:start;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="8">
+          <div data-anim="1" onClick="{{ s.onClick }}" style="{{ s.wrapStyle }}">
+            <x-import component-from-global-scope="SamsaraDesignSystem_a84610.StatCallout" value="{{ s.num }}" label="{{ s.label }}" hint-size="100%,120px"></x-import>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" style="padding-top:72px;">
+      <div style="display:flex; align-items:baseline; gap:4px; margin-bottom:14px;">
+        <span style="flex:none; width:30px; font-size:var(--fs-h3); font-weight:700; line-height:1.12; color:var(--gray-500); font-variant-numeric:tabular-nums;">1</span>
+        <h2 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:var(--fs-h3); letter-spacing:var(--ls-head); line-height:1.12; color:var(--black); margin:0;">Since my last check-in</h2>
+      </div>
+      <p style="font-size:var(--fs-body); line-height:var(--lh-normal); color:var(--text-muted); max-width:68ch; margin:0 0 28px;">I delivered measurable impact across customer reliability, technical health, commercial outcomes, and scalable TAM programs.</p>
+
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:28px;" data-no-print="true">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted);">Filter by focus area</span>
+        <sc-for list="{{ categoryChips }}" as="c" hint-placeholder-count="3">
+          <span onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</span>
+        </sc-for>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(max(320px, min(100%, 48%)),1fr)); gap:20px; align-items:start;">
+        <sc-for list="{{ achievements }}" as="a" hint-placeholder-count="7">
+          <div data-anim="1" style="{{ a.cardStyle }}">
+            <span style="{{ a.badgeStyle }}">{{ a.badge }}</span>
+            <h3 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:18px; line-height:1.3; letter-spacing:var(--ls-head); color:var(--black); margin:0 0 10px;">{{ a.title }}</h3>
+
+            <sc-if value="{{ a.isParagraph }}" hint-placeholder-val="{{ false }}">
+              <p style="{{ a.clampStyle }}">{{ a.text }}</p>
+              <span onClick="{{ a.onToggle }}" style="display:inline-block; margin-top:10px; font-size:13px; font-weight:700; color:var(--black); cursor:pointer; text-decoration:underline;">{{ a.toggleLabel }}</span>
+            </sc-if>
+
+            <sc-if value="{{ a.isList }}" hint-placeholder-val="{{ false }}">
+              <ul style="list-style:none; margin:12px 0 0; padding:0;">
+                <sc-for list="{{ a.items }}" as="it" hint-placeholder-count="3">
+                  <li style="display:flex; gap:10px; align-items:flex-start; font-size:15px; color:var(--text-muted); padding:5px 0; line-height:1.55;">
+                    <span style="flex:none; width:6px; height:6px; margin-top:8px; background:var(--black);"></span>
+                    <span><b style="color:var(--black); font-variant-numeric:tabular-nums;">{{ it.metric }}</b> {{ it.text }}</span>
+                  </li>
+                </sc-for>
+              </ul>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- VOICE OF CUSTOMER -->
+    <section id="voc" style="padding-top:72px;">
+      <div style="display:flex; align-items:baseline; gap:4px; margin-bottom:14px;">
+        <span style="flex:none; width:30px; font-size:var(--fs-h3); font-weight:700; line-height:1.12; color:var(--gray-500); font-variant-numeric:tabular-nums;">2</span>
+        <h2 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:var(--fs-h3); letter-spacing:var(--ls-head); line-height:1.12; color:var(--black); margin:0;">Voice of the customer</h2>
+      </div>
+      <p style="font-size:var(--fs-body); line-height:var(--lh-normal); color:var(--text-muted); max-width:68ch; margin:0 0 28px;">Selected feedback from the latest TAM survey across my portfolio.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(max(320px, min(100%, 48%)),1fr)); gap:18px; align-items:start;">
+        <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="6">
+          <div data-anim="1" style="{{ q.cardStyle }}">
+            <img src="assets/icons/quote.svg" alt="" style="width:18px; height:18px; opacity:0.35; margin-bottom:12px;">
+            <p style="font-size:16px; line-height:1.6; color:var(--text-body); margin:0 0 16px;">{{ q.text }}</p>
+            <div style="font-size:13px; font-weight:700; color:var(--black);">{{ q.who }}</div>
+            <div style="font-size:12px; color:var(--text-muted);">{{ q.org }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- SENTIMENT -->
+    <section id="sentiment" style="padding-top:72px;">
+      <div style="display:flex; align-items:baseline; gap:4px; margin-bottom:14px;">
+        <span style="flex:none; width:30px; font-size:var(--fs-h3); font-weight:700; line-height:1.12; color:var(--gray-500); font-variant-numeric:tabular-nums;">3</span>
+        <h2 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:var(--fs-h3); letter-spacing:var(--ls-head); line-height:1.12; color:var(--black); margin:0;">Account sentiment context</h2>
+      </div>
+      <p style="font-size:var(--fs-body); line-height:var(--lh-normal); color:var(--text-muted); max-width:68ch; margin:0 0 28px;">Reading sentiment as a trajectory, distinguishing account-level recovery from individual survey responses.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(max(320px, min(100%, 48%)),1fr)); gap:18px; align-items:start;">
+        <div data-anim="1" style="{{ unfiCardStyle }}">
+          <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:var(--radius-sm); margin-bottom:12px; background:rgba(47,107,79,0.12); color:#215940;">UNFI · Upgraded to Green</span>
+          <h3 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:18px; line-height:1.3; letter-spacing:var(--ls-head); color:var(--black); margin:0 0 8px;">UNFI</h3>
+          <p style="font-size:15px; color:var(--text-muted); margin:0; line-height:1.6;">Account sentiment was formally upgraded from Yellow to Green after the team confirmed the account was on track with no major blockers. Individual survey responses still show Yellow, so I distinguish account-level recovery from respondent-level feedback. My focus is maintaining the Green trajectory by closing remaining priority items.</p>
+        </div>
+        <div data-anim="1" style="{{ pfgCardStyle }}">
+          <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:var(--radius-sm); margin-bottom:12px; background:rgba(154,91,18,0.14); color:#7A4A12;">PFG · Watch</span>
+          <h3 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:18px; line-height:1.3; letter-spacing:var(--ls-head); color:var(--black); margin:0 0 8px;">Performance Food Group</h3>
+          <p style="font-size:15px; color:var(--text-muted); margin:0; line-height:1.6;">The hotspot escalation shows active cross-functional work and a major customer update, while survey feedback is positive on technical expertise but asks for more proactive follow-through. My focus is moving PFG from technical progress toward stronger overall confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT QUARTER -->
+    <section id="next" style="padding-top:72px;">
+      <div style="display:flex; align-items:baseline; gap:4px; margin-bottom:14px;">
+        <span style="flex:none; width:30px; font-size:var(--fs-h3); font-weight:700; line-height:1.12; color:var(--gray-500); font-variant-numeric:tabular-nums;">4</span>
+        <h2 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:var(--fs-h3); letter-spacing:var(--ls-head); line-height:1.12; color:var(--black); margin:0;">What I will achieve in the quarter ahead</h2>
+      </div>
+      <p style="font-size:var(--fs-body); line-height:var(--lh-normal); color:var(--text-muted); max-width:68ch; margin:0 0 28px;">Converting current work into durable customer and team outcomes while keeping commitments realistic.</p>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
+          <div data-anim="1" style="display:flex; gap:18px; background:var(--white); border:1px solid var(--border-subtle); padding:20px 22px;">
+            <div style="flex:none; width:32px; height:32px; background:var(--black); color:var(--gray-100); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:center;">{{ g.n }}</div>
+            <div>
+              <h4 style="margin:0 0 5px; font-size:17px; font-weight:700; letter-spacing:var(--ls-head); color:var(--black);">{{ g.title }}</h4>
+              <p style="margin:0; font-size:15px; color:var(--text-muted); line-height:1.6;">{{ g.text }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:14px; line-height:1.6; color:var(--text-muted); margin-top:20px; max-width:68ch;">This approach aligns with the Operating Principles by working with urgency, working backwards from measurable outcomes, using data honestly, keeping a high bar, and solving problems together.</p>
+    </section>
+
+    <!-- OPERATING PRINCIPLES -->
+    <section id="principles" style="padding-top:72px; padding-bottom:16px;">
+      <div style="display:flex; align-items:baseline; gap:4px; margin-bottom:24px;">
+        <span style="flex:none; width:30px; font-size:var(--fs-h3); font-weight:700; line-height:1.12; color:var(--gray-500); font-variant-numeric:tabular-nums;">5</span>
+        <h2 style="font-family:var(--font-sans); font-weight:var(--fw-bold); font-size:var(--fs-h3); letter-spacing:var(--ls-head); line-height:1.12; color:var(--black); margin:0;">Operating Principles in action</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(max(320px, min(100%, 48%)),1fr)); gap:24px 32px; align-items:start;">
+        <div data-anim="1" style="border-top:1px solid var(--border-strong); padding-top:16px; display:flex; gap:14px;">
+          <img src="assets/icons/op-urgency.svg" alt="" style="width:26px; height:26px; flex:none; margin-top:2px;">
+          <div>
+            <h4 style="margin:0 0 5px; font-size:16px; font-weight:700; letter-spacing:var(--ls-head); color:var(--black);">Work with urgency, deliver iteratively</h4>
+            <p style="margin:0; font-size:15px; color:var(--text-muted); line-height:1.6;">Drove critical PFG, NexTier, and BrandSafway issues to resolution, including a three-day Cassens HOS outage fix ahead of renewal.</p>
+          </div>
+        </div>
+        <div data-anim="1" style="border-top:1px solid var(--border-strong); padding-top:16px; display:flex; gap:14px;">
+          <img src="assets/icons/op-highbar.svg" alt="" style="width:26px; height:26px; flex:none; margin-top:2px;">
+          <div>
+            <h4 style="margin:0 0 5px; font-size:16px; font-weight:700; letter-spacing:var(--ls-head); color:var(--black);">Keep a high bar</h4>
+            <p style="margin:0; font-size:15px; color:var(--text-muted); line-height:1.6;">Pursued root causes instead of workarounds, from the five-year PFG disconnection to recurring device-health faults.</p>
+          </div>
+        </div>
+        <div data-anim="1" style="border-top:1px solid var(--border-strong); padding-top:16px; display:flex; gap:14px;">
+          <img src="assets/icons/op-together.svg" alt="" style="width:26px; height:26px; flex:none; margin-top:2px;">
+          <div>
+            <h4 style="margin:0 0 5px; font-size:16px; font-weight:700; letter-spacing:var(--ls-head); color:var(--black);">Solve problems together</h4>
+            <p style="margin:0; font-size:15px; color:var(--text-muted); line-height:1.6;">Coordinated Support, Product, Engineering, PSE, Legal, and account teams to reach durable outcomes.</p>
+          </div>
+        </div>
+        <div data-anim="1" style="border-top:1px solid var(--border-strong); padding-top:16px; display:flex; gap:14px;">
+          <img src="assets/icons/op-backwards.svg" alt="" style="width:26px; height:26px; flex:none; margin-top:2px;">
+          <div>
+            <h4 style="margin:0 0 5px; font-size:16px; font-weight:700; letter-spacing:var(--ls-head); color:var(--black);">Work backwards from winning</h4>
+            <p style="margin:0; font-size:15px; color:var(--text-muted); line-height:1.6;">Turned one-off escalations into repeatable programs like THR and the Gateway Deactivation Tool.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div style="margin-top:64px; padding-top:24px; border-top:1px solid var(--border-subtle); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/logos/samsara-symbol-gray500.png" alt="" style="width:18px; height:18px;">
+        <span style="font-size:13px; color:var(--text-muted);">© Samsara Inc. Confidential</span>
+      </div>
+      <span style="font-size:13px; color:var(--text-muted);">Pranav Shah · TAM IV · FY27 Q3</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { account: null, category: null, expanded: {}, active: 'stats' };
+
+  ACCOUNTS = ['UNFI','Performance Food Group','Cassens Transport','BrandSafway','APi Group','NexTier','DOT Transportation','TurnPoint Services'];
+
+  ACCOUNT_CODES = {
+    'UNFI': 'UNFI',
+    'Performance Food Group': 'PFG',
+    'Cassens Transport': 'CASS',
+    'BrandSafway': 'BSW',
+    'APi Group': 'APi',
+    'NexTier': 'NEX',
+    'DOT Transportation': 'DOT',
+    'TurnPoint Services': 'TPS',
+  };
+
+  CATEGORIES = [
+    { id: 'impact', label: 'Impact' },
+    { id: 'escalation', label: 'Escalation' },
+    { id: 'technical', label: 'Technical' },
+  ];
+
+  STATS = [
+    { id: 'outcomes', num: '49', label: 'TAM outcomes logged across 13 accounts', account: null },
+    { id: 'cassens', num: '97.3%', label: 'Cassens fleet health; 4 terminals at 100%', account: 'Cassens Transport' },
+    { id: 'dot', num: '95.7%', label: 'DOT fleet health, 95% target met', account: 'DOT Transportation' },
+    { id: 'osat', num: '4.82', label: 'Avg OSAT across 11 survey responses', account: null },
+    { id: 'upsell', num: '$340K', label: 'UNFI upsell motion supported', account: 'UNFI' },
+    { id: 'thr', num: '8+', label: 'Technical Health Reviews across accounts & TAMs', account: null },
+  ];
+
+  ACHIEVEMENTS = [
+    { id: 'pfg', category: 'impact', full: true, badge: 'Reliability · 5-year issue resolved', title: 'Resolved a five-year PFG Driver App issue', type: 'paragraph',
+      text: "PFG had recurring Driver App disconnections when VG hotspots reached the 500 MB monthly data cap, frustrating the customer and blocking ELD rollout across operating companies. I led the investigation with Support and Product, identified the Android connectivity behavior behind the issue, and helped drive the VG39 firmware fix and data pooling solution. Early feedback showed fewer disconnects, restoring customer confidence and creating a path to resume ELD readiness work.",
+      accounts: ['Performance Food Group'] },
+    { id: 'health', category: 'technical', full: false, badge: 'Technical health', title: 'Improved customer health across the portfolio', type: 'list',
+      items: [
+        { metric: '97.3%', text: 'Cassens fleet health; AG target met, four terminals at 100%, June closed with zero RMA cases' },
+        { metric: '95.7%', text: 'DOT fleet health by segmenting warehouse handhelds and issuing depot-level action lists' },
+        { metric: '93.5%', text: 'APi path from 90.6% across 15,121 devices and 33 operating companies' },
+        { metric: '85.4%', text: 'UNFI Asset Gateway health after deactivating 246 archived gateways' },
+      ],
+      accounts: ['Cassens Transport', 'DOT Transportation', 'APi Group', 'UNFI'] },
+    { id: 'thr', category: 'technical', full: false, badge: 'Scalable TAM programs', title: 'Scaled repeatable TAM solutions', type: 'list',
+      items: [
+        { metric: 'THR', text: 'productized into a reusable executive deck and workbook, now used across accounts and TAMs' },
+        { metric: '50-62%', text: 'integration error rates surfaced across Petit Forestier, PaqueteXpress, and Chick-fil-A' },
+        { metric: 'Org-wide', text: 'Gateway Deactivation Tool released across Cassens, APi, and NexTier' },
+      ],
+      accounts: ['Cassens Transport', 'APi Group', 'NexTier'] },
+    { id: 'brandsafway', category: 'escalation', full: true, badge: 'Strategic ownership · Legal escalation', title: 'BrandSafway legal and telematics license escalation', type: 'paragraph',
+      text: "BrandSafway needed vehicle on-time data through the API while operating under safety-only licensing. I clarified the available endpoints and licensing boundaries, proposed trip history as a workable alternative, and coordinated with Legal, Product, Support, and the account team. The legal-to-legal discussion went well, with both sides aligned on avoiding a contractual dispute and finding a technical or commercial path. I also identified the feature-flag mechanism needed to clear vehicles stranded as regulated after the telematics trial expired. In parallel, I built a device health program from scratch that moved health to 83.6% and removed roughly 17,000 safety events of queue noise through automated dismissal, moving a Red account toward a documented path forward.",
+      accounts: ['BrandSafway'] },
+    { id: 'nextier', category: 'escalation', full: false, badge: 'Escalation leadership', title: 'Protected safety-critical operations at NexTier', type: 'list',
+      items: [
+        { metric: '134', text: 'proactive camera RMAs and 63 Power Bridge shipments within five weeks' },
+        { metric: '4 days', text: 'to root cause on a P1 camera failure during an on-site executive visit' },
+        { metric: '8,834', text: 'devices baselined across 95 operating companies with a targeted remediation roadmap' },
+      ],
+      accounts: ['NexTier'] },
+    { id: 'commercial', category: 'impact', full: false, badge: 'Commercial impact', title: 'Supported commercial outcomes', type: 'paragraph',
+      text: "I continued supporting the UNFI expansion motion, including the $340K upsell, and converted a Cassens hardware-loss observation into a qualified AT11/AT12 tracker opportunity handed to the account team with a stated buy signal. This connected technical discovery directly to expansion and retention.",
+      accounts: ['UNFI', 'Cassens Transport'] },
+    { id: 'india-l1', category: 'technical', full: true, badge: 'Team & org enablement', title: 'Enabled the India-based L1 support team', type: 'paragraph',
+      text: "I served as an ambassador for the TAM program in India, presenting a comprehensive overview for L1, L2, PSEs, and our newest support leaders to socialize our charter, strategic customer engagement model, and the technical value TAMs deliver. This strengthens the global operating model and tightens TAM and L1 partnership across regions.",
+      accounts: [] },
+    { id: 'feedback', category: 'technical', full: true, badge: 'Voice of customer', title: 'Earned strong customer feedback', type: 'paragraph',
+      text: "The latest TAM survey included 11 completed responses, averaging 4.82/5 for overall satisfaction, 4.73/5 for TAM actions, and 4.82/5 for TAM guidance. Customers described me as reliable, responsive, technically strong, and effective at helping them use Samsara more independently. My development focus is more proactive updates and tighter follow-through on long-running workstreams.",
+      accounts: [] },
+  ];
+
+  QUOTES = [
+    { id: 'paluch', account: 'Cassens Transport', who: 'Ken Paluch', org: 'Cassens Transport Company', text: "He's been a game changer for us. At first it was just he and I and now we often have dozens of participants on these calls. He sets goals, follows up on our action items, and has anticipated our needs many times." },
+    { id: 'hopper', account: 'Performance Food Group', who: 'William Hopper', org: 'Performance Food Group', text: "Pranav has grown with us this year in a way that improved our ability to improve our program management. Very responsive, strong technical expertise, and shows the ability to adapt to fit the customer." },
+    { id: 'lawson', account: null, who: 'Will Lawson', org: 'J. Fletcher Creamer & Son', text: "Pranav is very attentive to detail and communicates everything effectively. He goes above and beyond for any issues that I have and trains me on how to work the issues that I experience." },
+    { id: 'griffin', account: 'TurnPoint Services', who: 'Susan Griffin', org: 'TurnPoint Services', text: "Pranav is easy to work with. He goes above and beyond to develop reports to help us and is eager to help us utilize all the tools available to better serve our organization." },
+    { id: 'wolf', account: 'UNFI', who: 'David Wolf', org: 'UNFI', text: "Pranav does a great job for us. We have zero complaints. He works very hard for us to make up for the somewhat unreliable support we get when we open tickets." },
+    { id: 'hertzog', account: 'Performance Food Group', who: 'Bill Hertzog', org: 'Performance Food Group', text: "Tech knowledge, speed of response, and will get an answer to a question that he might not have the answer to. Very attentive and responsive to questions and support needed." },
+  ];
+
+  GOALS = [
+    { id: 'health', n: '1', title: 'Account health and sentiment', text: "Stabilize the PFG Driver App and ELD rollout, maintain UNFI's Green trajectory by closing priority items, and advance a clear technical and commercial path for BrandSafway's telematics and API needs. Measured through clear ownership, timely updates, and fewer repeat escalations." },
+    { id: 'scale', n: '2', title: 'Scale what works', text: "Continue expanding Technical Health Reviews and the Gateway Deactivation Tool across priority accounts, prioritizing adoption, quality, and reusable documentation over a large number of new deliverables." },
+    { id: 'ai', n: '3', title: 'Use AI for leverage', text: "Use AI, with human review and appropriate data handling, to accelerate THR summaries, meeting recaps, account-risk themes, and follow-up tracking, reducing manual preparation and improving consistency." },
+    { id: 'idp', n: '4', title: 'Continue my IDP development', text: "Build deeper Camera, Safety, and API expertise; improve data storytelling and executive stakeholder influence; formalize successful work into playbooks; progress toward AWS and AI certification goals as capacity allows; and keep mentoring newer TAMs." },
+    { id: 'adjust', n: '5', title: 'Adjustments and support', text: "Use a simple follow-up cadence with owners, dates, and status updates for long-running workstreams. Protect focused time for program work, and ask my manager to help prioritize the highest-impact account bets, secure cross-functional support for PFG and BrandSafway, and provide feedback on executive-level communication." },
+  ];
+
+  PRINCIPLES = [
+    { icon: 'assets/icons/op-urgency.svg', title: 'Work with urgency, deliver iteratively', text: 'Drove critical PFG, NexTier, and BrandSafway issues to resolution, including a three-day Cassens HOS outage fix ahead of renewal.' },
+    { icon: 'assets/icons/op-highbar.svg', title: 'Keep a high bar', text: 'Pursued root causes instead of workarounds, from the five-year PFG disconnection to recurring device-health faults.' },
+    { icon: 'assets/icons/op-together.svg', title: 'Solve problems together', text: 'Coordinated Support, Product, Engineering, PSE, Legal, and account teams to reach durable outcomes.' },
+    { icon: 'assets/icons/op-backwards.svg', title: 'Work backwards from winning', text: 'Turned one-off escalations into repeatable programs like THR and the Gateway Deactivation Tool.' },
+  ];
+
+  CAT_COLORS = {
+    impact: { bg: 'rgba(47,107,79,0.12)', fg: '#215940' },
+    escalation: { bg: 'rgba(154,91,18,0.14)', fg: '#7A4A12' },
+    technical: { bg: 'var(--gray-300)', fg: 'var(--black)' },
+  };
+
+  componentDidMount() {
+    this._sections = ['stats', 'achievements', 'voc', 'sentiment', 'next', 'principles'];
+    this._observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) this.setState({ active: e.target.id }); });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    this._sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) this._observer.observe(el);
+    });
+    this._startReveal();
+  }
+
+  _startReveal() {
+    if (this._revealObserver) this._revealObserver.disconnect();
+    this._revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const group = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = (group % 4) * 110 + 'ms';
+        el.setAttribute('data-reveal', 'in');
+        this._revealObserver.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    this._sweepReveal();
+  }
+
+  _sweepReveal() {
+    if (!this._revealObserver) return;
+    document.querySelectorAll('[data-anim]:not([data-reveal])').forEach((el) => this._revealObserver.observe(el));
+  }
+
+  componentDidUpdate() {
+    if (this._sweepTimer) clearTimeout(this._sweepTimer);
+    this._sweepTimer = setTimeout(() => this._sweepReveal(), 60);
+  }
+
+  componentWillUnmount() {
+    if (this._observer) this._observer.disconnect();
+    if (this._revealObserver) this._revealObserver.disconnect();
+    if (this._sweepTimer) clearTimeout(this._sweepTimer);
+  }
+
+  setAccount(a) { this.setState((s) => ({ account: s.account === a ? null : a })); }
+  setCategory(c) { this.setState((s) => ({ category: s.category === c ? null : c })); }
+  clearFilters() { this.setState({ account: null, category: null }); }
+  toggleExpand(id) { this.setState((s) => ({ expanded: { ...s.expanded, [id]: !s.expanded[id] } })); }
+  scrollTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 84;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  dimStyle(dimmed) {
+    return { opacity: dimmed ? 0.3 : 1, filter: dimmed ? 'grayscale(65%)' : 'none', transition: 'opacity 220ms ease, filter 220ms ease' };
+  }
+
+  chipStyle(active) {
+    return {
+      display: 'inline-flex', alignItems: 'center', fontSize: '13px', fontWeight: 600,
+      padding: '7px 14px', borderRadius: 'var(--radius-pill)', cursor: 'pointer', whiteSpace: 'nowrap',
+      transition: 'background 160ms ease, color 160ms ease, border-color 160ms ease',
+      background: active ? 'var(--black)' : 'var(--white)',
+      color: active ? 'var(--gray-100)' : 'var(--text-body)',
+      border: active ? '1px solid var(--black)' : '1px solid var(--border-subtle)',
+    };
+  }
+
+  cardBaseStyle(dimmed, full) {
+    return {
+      background: 'var(--white)', border: '1px solid var(--border-subtle)', padding: '24px 26px',
+      gridColumn: full ? '1 / -1' : 'auto',
+      ...this.dimStyle(dimmed),
+    };
+  }
+
+  renderVals() {
+    const { account, category, expanded, active } = this.state;
+
+    const achievements = this.ACHIEVEMENTS.map((a) => {
+      const accDim = !!account && a.accounts.length > 0 && a.accounts.indexOf(account) === -1;
+      const catDim = !!category && a.category !== category;
+      const dimmed = accDim || catDim;
+      const cc = this.CAT_COLORS[a.category];
+      return {
+        ...a,
+        isParagraph: a.type === 'paragraph',
+        isList: a.type === 'list',
+        cardStyle: this.cardBaseStyle(dimmed, a.full),
+        badgeStyle: { display: 'inline-block', fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: 'var(--radius-sm)', marginBottom: '12px', background: cc.bg, color: cc.fg },
+        expanded: !!expanded[a.id],
+        clampStyle: expanded[a.id]
+          ? { fontSize: '15px', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }
+          : { fontSize: '15px', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0, display: '-webkit-box', WebkitLineClamp: '3', WebkitBoxOrient: 'vertical', overflow: 'hidden' },
+        toggleLabel: expanded[a.id] ? 'Show less' : 'Read more',
+        onToggle: () => this.toggleExpand(a.id),
+      };
+    });
+
+    const quotes = this.QUOTES.map((q) => ({
+      ...q,
+      cardStyle: { background: 'var(--white)', border: '1px solid var(--border-subtle)', padding: '22px 24px', ...this.dimStyle(!!account && !!q.account && q.account !== account) },
+    }));
+
+    const stats = this.STATS.map((s) => ({
+      ...s,
+      wrapStyle: { cursor: s.account ? 'pointer' : 'default', ...this.dimStyle(!!account && !!s.account && s.account !== account) },
+      onClick: () => { if (s.account) this.setAccount(s.account); },
+    }));
+
+    const accountChips = this.ACCOUNTS.map((a) => ({ id: a, label: a, style: this.chipStyle(account === a), onClick: () => this.setAccount(a) }));
+    const categoryChips = this.CATEGORIES.map((c) => ({ ...c, style: this.chipStyle(category === c.id), onClick: () => this.setCategory(c.id) }));
+
+    const navDefs = [
+      { id: 'stats', label: 'Overview' },
+      { id: 'achievements', label: 'Achievements' },
+      { id: 'voc', label: 'Customers' },
+      { id: 'sentiment', label: 'Sentiment' },
+      { id: 'next', label: 'Next' },
+      { id: 'principles', label: 'Principles' },
+    ];
+    const navItems = navDefs.map((n) => ({
+      ...n,
+      onClick: () => this.scrollTo(n.id),
+      style: { fontSize: '13.5px', fontWeight: 600, cursor: 'pointer', padding: '4px 2px', whiteSpace: 'nowrap', color: active === n.id ? 'var(--gray-100)' : 'var(--gray-500)', borderBottom: active === n.id ? '2px solid var(--signal)' : '2px solid transparent', transition: 'color 160ms ease, border-color 160ms ease' },
+    }));
+
+    return {
+      navItems,
+      accountChips,
+      categoryChips,
+      achievements,
+      quotes,
+      stats,
+      goals: this.GOALS,
+      principles: this.PRINCIPLES,
+      portfolioAccounts: this.ACCOUNTS.map((a) => {
+        const code = this.ACCOUNT_CODES[a];
+        return { name: a, code, showCode: code !== a };
+      }),
+      hasFilter: !!(account || category),
+      clearFilters: () => this.clearFilters(),
+      printPage: () => window.print(),
+      printBtnStyle: { flex: 'none' },
+
+      unfiCardStyle: { background: 'var(--white)', border: '1px solid var(--border-subtle)', padding: '24px 26px', ...this.dimStyle(!!account && account !== 'UNFI') },
+      pfgCardStyle: { background: 'var(--white)', border: '1px solid var(--border-subtle)', padding: '24px 26px', ...this.dimStyle(!!account && account !== 'Performance Food Group') },
+    };
+  }
+}
+
+</script>
+</body>
+</html>
